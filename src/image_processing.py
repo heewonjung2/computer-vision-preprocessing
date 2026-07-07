@@ -8,6 +8,11 @@ def resize_image(image, width=224, height=224):
    # 기본 크기는 224×224이며, 필요하면 width와 height를 변경할 수 있다.
     return cv2.resize(image, (width, height))
 
+def convert_to_grayscale(image):
+    # 컬러 이미지를 흑백 이미지로 변환
+    # Grayscale은 색상 정보 제거, 밝기 정보만 남김-> 이미지 분석, 전처리에서 자주 사용.
+    return cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+
 def detect_red_color():
     # 이미지에서 빨간색 영역을 검출하여 결과 이미지를 저장한다.
     # 현재 파일(src/image_processing.py)을 기준으로 프로젝트 최상위 폴더를 찾는다.
