@@ -1,6 +1,3 @@
-import cv2
-import numpy as np
-import matplotlib.pyplot as plt
+from image_processing import detect_red_color
 
-print("OpenCV:", cv2.__version__)
-print("NumPy:", np.__version__)
+detect_red_color()
