@@ -3,9 +3,15 @@ import numpy as np
 from pathlib import Path
 
 
+def resize_image(image, width=224, height=224):
+   # AI 모델 입력 크기에 맞도록 이미지 크기를 조정한다.
+   # 기본 크기는 224×224이며, 필요하면 width와 height를 변경할 수 있다.
+    return cv2.resize(image, (width, height))
+
 def detect_red_color():
+    # 이미지에서 빨간색 영역을 검출하여 결과 이미지를 저장한다.
     # 현재 파일(src/image_processing.py)을 기준으로 프로젝트 최상위 폴더를 찾는다.
-    # 이렇게 하면 어느 위치에서 실행하더라도 이미지 경로가 올바르게 지정된다.
+    # 어느 위치에서 실행하더라도 이미지 경로가 올바르게 지정된다.
     base_dir = Path(__file__).resolve().parent.parent
 
     image_path = base_dir / "images" / "sample.jpg"
@@ -19,6 +25,9 @@ def detect_red_color():
     if image is None:
         print("이미지를 불러오지 못했습니다.")
         return
+    
+    # AI 모델 입력 크기에 맞게 이미지 크기를 조정한다.
+    image = resize_image(image)
 
     # OpenCV는 기본적으로 BGR 색상 공간을 사용하지만,
     # 색상을 기준으로 객체를 검출할 때는 HSV가 더 안정적이므로 변환한다.
