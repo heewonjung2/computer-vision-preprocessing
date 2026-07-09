@@ -117,6 +117,7 @@ def has_small_object(image, min_area=5000):
     ⑤ 가장 큰 객체의 면적이 min_area보다 작으면 True를 반환한다.
     """
 
+    # 가장 큰 객체의 면적이 5000픽셀보다 작으면 작은 객체로 판단한다.
     # 객체의 경계를 찾기 위해 흑백 이미지로 변환한다.
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
