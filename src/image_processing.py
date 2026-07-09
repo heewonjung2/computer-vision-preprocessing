@@ -13,6 +13,11 @@ def convert_to_grayscale(image):
     # Grayscale은 색상 정보 제거, 밝기 정보만 남김-> 이미지 분석, 전처리에서 자주 사용.
     return cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
+def normalize_image(image):
+    # 이미지의 픽셀 값을 0~255 범위에서 0~1 범위로 정규화
+    # AI 모델 학습 시 데이터의 범위를 일정하게 맞추기 위해 사용.
+    return image.astype(np.float32) / 255.0
+
 def detect_red_color():
     # 이미지에서 빨간색 영역을 검출하여 결과 이미지를 저장한다.
     # 현재 파일(src/image_processing.py)을 기준으로 프로젝트 최상위 폴더를 찾는다.
@@ -35,7 +40,8 @@ def detect_red_color():
     image = resize_image(image)
 
     # OpenCV는 기본적으로 BGR 색상 공간을 사용하지만,
-    # 색상을 기준으로 객체를 검출할 때는 HSV가 더 안정적이므로 변환한다.
+    # 색상을 기준으로 객체를 검출할 때는 HSV가 더 안정적이므로 변환.
+    # 색(H), 채도(S), 명도(V)로 구성.
     hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
     # 빨간색은 HSV 색상환의 시작(0°)과 끝(180°)에 걸쳐 존재하기 때문에
