@@ -76,3 +76,6 @@ py src/main.py
 ### 빨간색 검출 결과
 
 ![Result](results/red_filtered.jpg)
+
+## Update
+- Final documentation update
