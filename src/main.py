@@ -1,8 +1,10 @@
 from image_processing import (
     detect_red_color,
     convert_to_grayscale,
-    normalize_image
+    normalize_image,
+    apply_blur
 )
+
 import cv2
 from pathlib import Path
 
@@ -27,6 +29,14 @@ normalized = normalize_image(image)
 cv2.imwrite(
     str(base_dir / "results" / "normalized.jpg"),
     (normalized * 255).astype("uint8")
+)
+
+# Blur 적용
+blurred = apply_blur(image)
+
+cv2.imwrite(
+    str(base_dir / "results" / "blur.jpg"),
+    blurred
 )
 
 # 빨간색 검출

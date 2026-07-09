@@ -18,6 +18,10 @@ def normalize_image(image):
     # AI 모델 학습 시 데이터의 범위를 일정하게 맞추기 위해 사용.
     return image.astype(np.float32) / 255.0
 
+def apply_blur(image, kernel_size=(5, 5)):
+    # Gaussian Blur를 적용하여 이미지의 노이즈를 줄인다.
+    return cv2.GaussianBlur(image, kernel_size, 0)
+
 def detect_red_color():
     # 이미지에서 빨간색 영역을 검출하여 결과 이미지를 저장한다.
     # 현재 파일(src/image_processing.py)을 기준으로 프로젝트 최상위 폴더를 찾는다.
