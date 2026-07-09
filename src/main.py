@@ -5,7 +5,8 @@ from image_processing import (
     apply_blur,
     flip_image,
     rotate_image,
-    change_color
+    change_color,
+    is_dark_image
 )
 import cv2
 from pathlib import Path
@@ -64,6 +65,11 @@ cv2.imwrite(
     str(base_dir / "results" / "color_changed.jpg"),
     color_changed
 )
+
+if is_dark_image(image):
+    print("너무 어두운 이미지입니다.")
+else:
+    print("정상 밝기 이미지입니다.")
 
 # 빨간색 검출
 detect_red_color()

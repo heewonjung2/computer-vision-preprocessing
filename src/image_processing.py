@@ -39,6 +39,14 @@ def change_color(image, alpha=1.2, beta=30):
     # 이미지의 밝기와 대비를 조절하여 색상을 변화시킴: alpha는 대비, beta는 밝기 조절
     return cv2.convertScaleAbs(image, alpha=alpha, beta=beta)
 
+def is_dark_image(image, threshold=50):
+    # 평균 밝기를 기준으로 너무 어두운 이미지를 판별한다.
+
+    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    brightness = np.mean(gray)
+
+    return brightness < threshold
+
 def detect_red_color():
     # 이미지에서 빨간색 영역을 검출하여 결과 이미지를 저장한다.
     # 현재 파일(src/image_processing.py)을 기준으로 프로젝트 최상위 폴더를 찾는다.
