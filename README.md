@@ -1,81 +1,138 @@
-# Computer Vision Image Preprocessing
+# 🖼️ Computer Vision Image Preprocessing
 
-> OpenCV를 활용한 이미지 전처리 및 색상 검출 프로젝트
+## 📌 Project Overview
 
-## 프로젝트 소개
+This project implements basic computer vision image preprocessing techniques using **Python** and **OpenCV**.
 
-Computer Vision 기초 기술을 학습하기 위해 OpenCV를 활용한 이미지 전처리 프로젝트를 진행했습니다.
-
-현재 구현된 기능은 빨간색 영역 검출이며, 이후 이미지 전처리 기능(Resize, Grayscale, Blur, Normalize 등)을 순차적으로 추가할 예정입니다.
+The project includes image preprocessing, data augmentation, color detection, and simple image quality filtering.
 
 ---
 
-## 개발 환경
+## 🛠 Tech Stack
 
-- Python 3.9
+- Python
 - OpenCV
 - NumPy
-- Git / GitHub
+- Git
+- GitHub
 
 ---
 
-## 프로젝트 구조
+## 📂 Project Structure
 
-```text
+```
 computer-vision-preprocessing
 │
 ├── images
+│   └── sample.jpg
+│
 ├── results
+│   ├── blur.jpg
+│   ├── color_changed.jpg
+│   ├── flipped.jpg
+│   ├── grayscale.jpg
+│   ├── normalized.jpg
+│   ├── red_filtered.jpg
+│   └── rotated.jpg
+│
 ├── src
-│   ├── main.py
-│   └── image_processing.py
+│   ├── image_processing.py
+│   └── main.py
 │
 ├── README.md
-├── requirements.txt
-└── .gitignore
+└── requirements.txt
 ```
 
 ---
 
-## 구현 기능
+# ✨ Features
 
-- [x] 이미지 로드
-- [x] HSV 색상 공간 변환
-- [x] 빨간색 영역 검출
-- [x] 결과 이미지 저장
-- [ ] Resize
-- [ ] Grayscale
-- [ ] Normalize
-- [ ] Blur
-- [ ] Data Augmentation
+### Image Preprocessing
+
+- Resize (224 × 224)
+- Grayscale Conversion
+- Image Normalization
+- Gaussian Blur
+
+### Data Augmentation
+
+- Horizontal Flip
+- Rotation
+- Color Augmentation
+
+### Color Detection
+
+- Red Color Detection using HSV Color Space
+
+### Image Quality Filtering
+
+- Dark Image Filtering (Average Brightness)
+- Small Object Filtering (Contour Area)
 
 ---
 
-## 실행 방법
+# 📷 Results
 
-가상환경 활성화
+## Original Image
+
+![Original](images/sample.jpg)
+
+---
+
+## Grayscale
+
+![Grayscale](results/grayscale.jpg)
+
+---
+
+## Blur
+
+![Blur](results/blur.jpg)
+
+---
+
+## Red Color Detection
+
+![Red Detection](results/red_filtered.jpg)
+
+---
+
+## Rotation
+
+![Rotation](results/rotated.jpg)
+
+---
+
+## Color Augmentation
+
+![Color](results/color_changed.jpg)
+
+---
+
+# 🚀 How to Run
 
 ```bash
-.\venv\Scripts\Activate.ps1
-```
+pip install -r requirements.txt
 
-프로그램 실행
-
-```bash
 py src/main.py
 ```
 
 ---
 
-## 실행 결과
+# 📖 What I Learned
 
-### 원본 이미지
+- Basic image preprocessing using OpenCV
+- Image normalization for AI preprocessing
+- Data augmentation techniques
+- HSV color space for color detection
+- Image quality filtering
+- Git Branch & Pull Request workflow
 
-![Original](images/sample.jpg)
+---
 
-### 빨간색 검출 결과
+# 🔮 Future Improvements
 
-![Result](results/red_filtered.jpg)
-
-## Update
-- Final documentation update
+- More color detection
+- Additional image augmentation methods
+- Performance evaluation using KPI
+- Processing multiple images automatically
