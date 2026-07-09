@@ -4,7 +4,8 @@ from image_processing import (
     normalize_image,
     apply_blur,
     flip_image,
-    rotate_image
+    rotate_image,
+    change_color
 )
 import cv2
 from pathlib import Path
@@ -54,6 +55,14 @@ rotated = rotate_image(image)
 cv2.imwrite(
     str(base_dir / "results" / "rotated.jpg"),
     rotated
+)
+
+# 색상 변화
+color_changed = change_color(image)
+
+cv2.imwrite(
+    str(base_dir / "results" / "color_changed.jpg"),
+    color_changed
 )
 
 # 빨간색 검출
