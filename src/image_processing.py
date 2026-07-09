@@ -22,6 +22,19 @@ def apply_blur(image, kernel_size=(5, 5)):
     # Gaussian Blur를 적용하여 이미지의 노이즈를 줄인다.
     return cv2.GaussianBlur(image, kernel_size, 0)
 
+def flip_image(image):
+    # 이미지를 좌우로 반전: 데이터 증강의 대표적 기법
+
+    return cv2.flip(image, 1)
+
+def rotate_image(image, angle=30):
+    # 이미지를 지정한 각도만큼 회전: 다양한 방향의 데이터 생성, 일반화 성능 향상
+    height, width = image.shape[:2]
+    center = (width // 2, height // 2)
+    matrix = cv2.getRotationMatrix2D(center, angle, 1.0)
+
+    return cv2.warpAffine(image, matrix, (width, height))
+
 def detect_red_color():
     # 이미지에서 빨간색 영역을 검출하여 결과 이미지를 저장한다.
     # 현재 파일(src/image_processing.py)을 기준으로 프로젝트 최상위 폴더를 찾는다.

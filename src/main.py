@@ -2,9 +2,10 @@ from image_processing import (
     detect_red_color,
     convert_to_grayscale,
     normalize_image,
-    apply_blur
+    apply_blur,
+    flip_image,
+    rotate_image
 )
-
 import cv2
 from pathlib import Path
 
@@ -37,6 +38,22 @@ blurred = apply_blur(image)
 cv2.imwrite(
     str(base_dir / "results" / "blur.jpg"),
     blurred
+)
+
+# 좌우 반전
+flipped = flip_image(image)
+
+cv2.imwrite(
+    str(base_dir / "results" / "flipped.jpg"),
+    flipped
+)
+
+# 이미지 회전
+rotated = rotate_image(image)
+
+cv2.imwrite(
+    str(base_dir / "results" / "rotated.jpg"),
+    rotated
 )
 
 # 빨간색 검출
