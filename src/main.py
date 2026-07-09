@@ -6,7 +6,8 @@ from image_processing import (
     flip_image,
     rotate_image,
     change_color,
-    is_dark_image
+    is_dark_image,
+    has_small_object
 )
 import cv2
 from pathlib import Path
@@ -70,6 +71,12 @@ if is_dark_image(image):
     print("너무 어두운 이미지입니다.")
 else:
     print("정상 밝기 이미지입니다.")
+
+# 객체 크기 확인
+if has_small_object(image):
+    print("객체가 너무 작습니다.")
+else:
+    print("객체 크기가 적절합니다.")
 
 # 빨간색 검출
 detect_red_color()
