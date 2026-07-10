@@ -78,18 +78,20 @@ for image_path in image_paths:
         color_changed
     )
 
-    # 평균 밝기 확인
+   # 평균 밝기를 기준으로 너무 어두운 이미지는 처리 대상에서 제외한다.
     if is_dark_image(image):
-        print("너무 어두운 이미지입니다.")
+        print("너무 어두운 이미지입니다. 다음 이미지로 넘어갑니다.")
+        continue
     else:
         print("정상 밝기 이미지입니다.")
 
-    # 객체 크기 확인
+    # 객체의 크기가 너무 작은 이미지는 처리 대상에서 제외한다.
     if has_small_object(image):
-        print("객체가 너무 작습니다.")
+        print("객체가 너무 작습니다. 다음 이미지로 넘어갑니다.")
+        continue
     else:
         print("객체 크기가 적절합니다.")
-
+        
     # 빨간색 검출
     detect_red_color(image, output_dir)
 
