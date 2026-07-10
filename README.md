@@ -4,7 +4,7 @@
 
 This project implements basic computer vision image preprocessing techniques using **Python** and **OpenCV**.
 
-The project includes image preprocessing, data augmentation, color detection, and simple image quality filtering.
+Five images from the **Hugging Face Food-101 dataset** were used to perform AI image preprocessing, data augmentation, color detection, and image quality filtering.
 
 ---
 
@@ -20,20 +20,22 @@ The project includes image preprocessing, data augmentation, color detection, an
 
 ## 📂 Project Structure
 
-```
+```text
 computer-vision-preprocessing
 │
 ├── images
-│   └── sample.jpg
+│   ├── sample1.jpg
+│   ├── sample2.jpg
+│   ├── sample3.jpg
+│   ├── sample4.jpg
+│   └── sample5.jpg
 │
 ├── results
-│   ├── blur.jpg
-│   ├── color_changed.jpg
-│   ├── flipped.jpg
-│   ├── grayscale.jpg
-│   ├── normalized.jpg
-│   ├── red_filtered.jpg
-│   └── rotated.jpg
+│   ├── sample1
+│   ├── sample2
+│   ├── sample3
+│   ├── sample4
+│   └── sample5
 │
 ├── src
 │   ├── image_processing.py
@@ -47,24 +49,24 @@ computer-vision-preprocessing
 
 # ✨ Features
 
-### Image Preprocessing
+## Image Preprocessing
 
 - Resize (224 × 224)
 - Grayscale Conversion
 - Image Normalization
 - Gaussian Blur
 
-### Data Augmentation
+## Data Augmentation
 
 - Horizontal Flip
 - Rotation
 - Color Augmentation
 
-### Color Detection
+## Color Detection
 
 - Red Color Detection using HSV Color Space
 
-### Image Quality Filtering
+## Image Quality Filtering
 
 - Dark Image Filtering (Average Brightness)
 - Small Object Filtering (Contour Area)
@@ -75,37 +77,37 @@ computer-vision-preprocessing
 
 ## Original Image
 
-![Original](images/sample.jpg)
+![Original](images/sample1.jpg)
 
 ---
 
 ## Grayscale
 
-![Grayscale](results/grayscale.jpg)
+![Grayscale](results/sample1/grayscale.jpg)
 
 ---
 
 ## Blur
 
-![Blur](results/blur.jpg)
+![Blur](results/sample1/blur.jpg)
 
 ---
 
 ## Red Color Detection
 
-![Red Detection](results/red_filtered.jpg)
+![Red Detection](results/sample1/red_filtered.jpg)
 
 ---
 
 ## Rotation
 
-![Rotation](results/rotated.jpg)
+![Rotation](results/sample1/rotated.jpg)
 
 ---
 
 ## Color Augmentation
 
-![Color](results/color_changed.jpg)
+![Color](results/sample1/color_changed.jpg)
 
 ---
 
@@ -125,14 +127,15 @@ py src/main.py
 - Image normalization for AI preprocessing
 - Data augmentation techniques
 - HSV color space for color detection
-- Image quality filtering
+- Image quality filtering using brightness and contour area
+- Processing multiple images automatically with Python
 - Git Branch & Pull Request workflow
 
 ---
 
 # 🔮 Future Improvements
 
-- More color detection
-- Additional image augmentation methods
-- Performance evaluation using KPI
-- Processing multiple images automatically
+- Support additional color detection (Blue, Green, etc.)
+- Add more image augmentation techniques
+- Measure preprocessing performance using KPI
+- Support batch processing for larger image datasets
